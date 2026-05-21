@@ -1,6 +1,6 @@
 # Bensadi Patesserie — Vite + React
 
-Standalone Vite project generated from the `bensadi` app, with images resolved from the sibling `attached_assets` folder at the workspace root.
+Vite + React site for Vercel and local dev. Images live in `attached_assets/` at the **project root** (committed to git) and are imported via the `@assets` alias.
 
 ## Setup
 
@@ -11,13 +11,17 @@ npm run dev
 
 ## Project layout
 
-- `src/` — React application (routing with Wouter, UI from shadcn/Radix, styling with Tailwind CSS v4).
-- `../attached_assets/` — Images imported via the `@assets` alias (see `vite.config.ts`). Keep this folder next to `bensadi-vite` so imports like `@assets/...jpg` keep working.
+- `src/` — React app (Wouter, shadcn/Radix, Tailwind CSS v4).
+- `attached_assets/` — Photos referenced from components (`@assets/...` in `vite.config.ts`).
 
 ## Scripts
 
-| Command        | Description              |
-| -------------- | ------------------------ |
-| `npm run dev`  | Start Vite dev server    |
-| `npm run build`| Typecheck + production build |
-| `npm run preview` | Preview production build |
+| Command           | Description                    |
+| ----------------- | ------------------------------ |
+| `npm run dev`     | Vite dev server                |
+| `npm run build`   | Typecheck + production build   |
+| `npm run preview` | Preview production build       |
+
+## Vercel
+
+Use the repository root as the project root (no “Root Directory” subfolder). `vercel.json` sets `outputDirectory` to `dist` and SPA rewrites for client-side routing.
